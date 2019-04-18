@@ -8,7 +8,7 @@ In the auth.json file, replace "Your Bot Token" with the token you copied down e
 
 Download Node.js from nodejs.org
 
-Go to your source folder in your terminal and run "npm install discord.io winston –save" to install dependencies.
+Go to your source folder in your terminal and run "npm install discord.io winston -save" to install dependencies.
 Run "npm install https://github.com/woor/discord.io/tarball/gateway_v6" for additional dependencies.
 
 Go to your bot.js folder location and run "node bot.js" to run the bot server. Use Ctrl-C to stop the server.
