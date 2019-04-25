@@ -19,7 +19,7 @@ bot.on('ready', function (evt) {
 	logger.info(bot.username + ' - (' + bot.id + ')');
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
-	// Our bot needs to know if it will execute a command
+	// The bot needs to know if it will execute a command
 	// It will listen for messages that will start with `!`
 	if (message.substring(0, 1) == '!') {
 		var args = message.substring(1).split(' ');
@@ -27,11 +27,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		args = args.splice(1);
 		// List of commands
 		switch(cmd) {
-			// !test
-			case 'test':
+			// !clean
+			case 'clean':
 				bot.sendMessage({
 					to: channelID,
-					message: 'This is a test!'
+					message: 'This should clean up some messages.'
 				});
 			break;
 			// !greet
@@ -45,10 +45,25 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			case 'help':
 				bot.sendMessage({
 					to: channelID,
-					message: '```\nMapleBot help page\n```'
+					message: `\`\`\`css
+[MapleBot help page]
+!command [required] Example of how command should be inputted
+
+!clean   [number]   Cleans up n numbers of messages
+!greet              Displays greet message
+!help               Display this help page
+!rank    [name]     Displays character ranking
+\`\`\``
 				});
 			break;
-			// Just add any case commands if you want to..
+			// !rank
+			case 'rank':
+				bot.sendMessage({
+					to: channelID,
+					message: 'This should display ranking of character.'
+				});
+			break;
+			// Just add any case commands if you want to. Don't forget to put the break
 		}
 	}
 });
