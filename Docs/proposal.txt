@@ -6,6 +6,6 @@ Overview: I am going to be developing a Discord Bot application called Windia. I
 
 Goal: Deploying the Discord bot and having it run functions that can search for information and cleaning up messages
 
-Resources: Uses discord.io which is licensed under the MIT License, winston which is licensed under MIT License, dotenv which is licensed under the BSD 2-Clause "Simplified" License, and npm software which is a package manager for JavaScript
+Resources: Uses discord.js which is licensed under the Apache License 2.0, node.js is JavaScript runtime built on Chrome's V8 JavaScript engine, and npm software which is a package manager for JavaScript
 
-Usage: discord.io is mainly used to connect to the Discord server, winston is a logger, dotenv is used for environment variables when I use sensitive information like the token key
+Usage: discord.js is mainly used to connect to the Discord server, node.js to run the software, and npm to install dependencies
