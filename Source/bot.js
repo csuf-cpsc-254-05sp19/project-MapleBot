@@ -17,23 +17,35 @@ client.on('message', msg => {
     args = args.splice(1);
     // List of commands
     switch (cmd) {
+      // Cleans up n numbers of messages
+      case 'clean':
+      // Checks if user has permission to manage messages
+      // Fetches n numbers of messages and deletes them
+      if (msg.member.hasPermission("MANAGE_MESSAGES")) {
+        msg.channel.fetchMessages({ limit: args }).then(function(list) {
+          msg.channel.bulkDelete(list);
+        }, function(err) {msg.channel.send(`ERROR: ERROR CLEANING CHANNEL`)})
+      }
+      msg.channel.send(`${args} message(s) were cleaned!`)
+      break;
       // Clears all messages that are newer than 14 days
       case 'clear':
+      // Checks if user has permission to manage messages
         if (msg.member.hasPermission("MANAGE_MESSAGES")) {
           msg.channel.fetchMessages().then(function(list) {
             msg.channel.bulkDelete(list);
-          }, function(err) {msg.channel.send("ERROR: ERROR CLEARING CHANNEL.")})
+          }, function(err) {msg.channel.send(`ERROR: ERROR CLEARING CHANNEL.`)})
         }
-        msg.channel.send('All messages newer than 14 days were cleared!');
+        msg.channel.send(`All messages newer than 14 days were cleared!`);
         break;
 
       // Displays an example of how to use commands
       case 'command':
         msg.channel.send(`
 \`\`\`css
-Example of command:
-[prefix][command]
+Example of commands:
 !help
+!clean 10
 \`\`\`
           `);
         break;
@@ -48,12 +60,12 @@ Example of command:
         msg.channel.send(`
 \`\`\`css
 [MapleBot help page]
+!clean   [number]   Cleans up n numbers of messages
 !clear              Clear all messages that are newer than 14 days
-!command            Displays an example of how to use commands
+!command            Displays examples of commands
 !greet              Displays greet message
 !help               Display this help page
 !ping               Returns the ping
-!rank    [name]     Displays character ranking
 \`\`\`
 `);
         break;
@@ -65,11 +77,6 @@ Example of command:
           let diff = Math.abs(msg.createdTimestamp - start);
           msg.edit(`MapleBot responded in *${diff/1000} seconds*`);
         }).catch((error) => console.log(error));
-        break;
-
-      // Displays character rank
-      case 'rank':
-        msg.channel.send('This should display ranking of character.');
         break;
 
       // Default does nothing if command is incorrect
