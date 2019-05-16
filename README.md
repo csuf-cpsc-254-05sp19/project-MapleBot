@@ -1,12 +1,12 @@
 # project-MapleBot
 MapleBot is a Discord application. MapleBot is a Bot user account that can be added to a Discord server. MapleBot is written in JavaScript. Discord.js is the main library. It uses Node.js to run. It is built by James Vu.
 
-##Requirements
+## Requirements
 1. You need a Discord account to use MapleBot if you don't have one, you can create an account at https://discordapp.com/
 2. You need to have Node.js installed. You can download Node.js at https://nodejs.org/en/
 3. You need to have npm. You can download npm at https://www.npmjs.com/
 
-##Set Up
+## Set Up
 1. Go to https://discordapp.com/developers/applications/ and click on "New Application".
 2. Create a name for your application and click on your newly created application.
 3. Click on the "Bot" tab and click "Add Bot"
