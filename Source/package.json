@@ -8,6 +8,6 @@
   },
   "author": "Your Name",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.5.0"
   }
 }
